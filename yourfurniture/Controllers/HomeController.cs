@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
-using YourFurniture.Data;  // Ensure this is added
-using YourFurniture.Models;  // Ensure this is added
+using YourFurniture.Data;
+using YourFurniture.Models;
 
-namespace YourFurniture.Controllers  // Ensure the namespace is correct
+namespace YourFurniture.Controllers
 {
     public class HomeController : Controller
     {
@@ -31,7 +31,9 @@ namespace YourFurniture.Controllers  // Ensure the namespace is correct
 
     internal class HomeView
     {
-        public List<Category> ?Categories { get; set; }
-        public List<Product> ?FeaturedProducts { get; set; }
+        public List<Category>? Categories { get; set; }
+        public List<Product>? FeaturedProducts { get; set; }
     }
 }
+
+
