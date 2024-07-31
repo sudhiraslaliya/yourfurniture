@@ -1,0 +1,13 @@
+<!-- Views/Product/Index.cshtml -->
+@model IEnumerable<Product>
+
+<h2>Products</h2>
+<ul>
+    @foreach (var product in Model)
+    {
+        <li>
+            <a href="/Product/Details/@product.Id">@product.Name</a>
+            - @product.Price
+        </li>
+    }
+</ul>

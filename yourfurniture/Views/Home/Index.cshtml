@@ -1,0 +1,27 @@
+﻿@model YourFurniture.Controllers.HomeController.HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Welcome to Your Furniture Store</h2>
+
+<h3>Categories</h3>
+<ul>
+    @foreach (var category in Model.Categories)
+    {
+        <li>
+            <a href="/Category/Details/@category.Id">@category.Name</a>
+        </li>
+    }
+</ul>
+
+<h3>Featured Products</h3>
+<ul>
+    @foreach (var product in Model.FeaturedProducts)
+    {
+        <li>
+            <a href="/Product/Details/@product.Id">@product.Name</a>
+            - @product.Price
+        </li>
+    }
+</ul>

@@ -1,0 +1,13 @@
+<!-- Views/Product/Details.cshtml -->
+@model Product
+
+<h2>@Model.Name</h2>
+<p>@Model.Description</p>
+<p>@Model.Price</p>
+<button onclick="addToCart('@Model.Id')">Add to Cart</button>
+
+<script>
+    function addToCart(productId) {
+        // Implement add to cart logic
+    }
+</script>

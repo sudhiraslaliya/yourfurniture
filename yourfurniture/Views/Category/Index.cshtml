@@ -1,0 +1,14 @@
+@model IEnumerable<YourFurniture.Models.Category>
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h2>Categories</h2>
+<ul>
+    @foreach (var category in Model)
+    {
+        <li>
+            <a href="/Category/Details/@category.Id">@category.Name</a>
+        </li>
+    }
+</ul>

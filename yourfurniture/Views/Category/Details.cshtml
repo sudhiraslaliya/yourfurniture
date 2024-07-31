@@ -1,0 +1,15 @@
+@model YourFurniture.Models.CategoryWithProducts
+@{
+    ViewData["Title"] = "Category Details";
+}
+
+<h2>@Model.Category.Name</h2>
+<ul>
+    @foreach (var product in Model.Products)
+    {
+        <li>
+            <a href="/Product/Details/@product.Id">@product.Name</a>
+            - @product.Price
+        </li>
+    }
+</ul>
