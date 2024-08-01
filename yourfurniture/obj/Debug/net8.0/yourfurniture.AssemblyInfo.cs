@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("yourfurniture")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee1d8be76f5279a4e4f48f36117664f345780100")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b48c173b3e70608b84a6cf0195e2a7d576942888")]
 [assembly: System.Reflection.AssemblyProductAttribute("yourfurniture")]
 [assembly: System.Reflection.AssemblyTitleAttribute("yourfurniture")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
