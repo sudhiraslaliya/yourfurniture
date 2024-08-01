@@ -1,0 +1,8 @@
+@model IEnumerable<Category>
+
+@foreach (var category in Model)
+{
+    <div>
+        <h2>@category.Name</h2>
+    </div>
+}

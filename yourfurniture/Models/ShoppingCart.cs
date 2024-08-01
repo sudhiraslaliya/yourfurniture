@@ -1,34 +1,38 @@
-namespace YourFurniture.Models
+using System.Collections.Generic;
+using System.Linq;
+
+public class ShoppingCart
 {
-    public class ShoppingCart
+    public List<ShoppingCartItem> Items { get; set; } = new List<ShoppingCartItem>();
+
+    public void AddToCart(string productId)
     {
-        public List<CartItem> Items { get; set; } = new List<CartItem>();
-
-        public void AddToCart(Product product, int quantity)
+        var item = Items.FirstOrDefault(i => i.ProductId == productId);
+        if (item != null)
         {
-            var existingItem = Items.FirstOrDefault(i => i.Product.Id == product.Id);
-            if (existingItem != null)
-            {
-                existingItem.Quantity += quantity;
-            }
-            else
-            {
-                Items.Add(new CartItem { Product = product, Quantity = quantity });
-            }
+            item.Quantity++;
         }
-
-        public void RemoveFromCart(string productId)
+        else
         {
-            Items.RemoveAll(i => i.Product.Id == productId);
+            Items.Add(new ShoppingCartItem { ProductId = productId, Quantity = 1 });
         }
+    }
 
-        public void AdjustQuantity(string productId, int quantity)
+    public void RemoveFromCart(string productId)
+    {
+        var item = Items.FirstOrDefault(i => i.ProductId == productId);
+        if (item != null)
         {
-            var item = Items.FirstOrDefault(i => i.Product.Id == productId);
-            if (item != null)
-            {
-                item.Quantity = quantity;
-            }
+            Items.Remove(item);
+        }
+    }
+
+    public void UpdateQuantity(string productId, int quantity)
+    {
+        var item = Items.FirstOrDefault(i => i.ProductId == productId);
+        if (item != null)
+        {
+            item.Quantity = quantity;
         }
     }
 }

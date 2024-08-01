@@ -1,15 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
-using YourFurniture.Data;
 using YourFurniture.Models;
 
 namespace YourFurniture.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly MongoDbContext _context;
+        private readonly MongoDBContext _context;
 
-        public HomeController(MongoDbContext context)
+        public HomeController(MongoDBContext context)
         {
             _context = context;
         }
@@ -19,7 +18,7 @@ namespace YourFurniture.Controllers
             var categories = _context.Categories.Find(_ => true).ToList();
             var featuredProducts = _context.Products.Find(_ => true).Limit(5).ToList();
 
-            var viewModel = new HomeView
+            var viewModel = new HomeViewModel
             {
                 Categories = categories,
                 FeaturedProducts = featuredProducts
@@ -29,11 +28,5 @@ namespace YourFurniture.Controllers
         }
     }
 
-    internal class HomeView
-    {
-        public List<Category>? Categories { get; set; }
-        public List<Product>? FeaturedProducts { get; set; }
-    }
+    
 }
-
-

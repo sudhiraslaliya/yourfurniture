@@ -1,20 +1,16 @@
 using MongoDB.Driver;
-using Microsoft.Extensions.Options;
-using YourFurniture.Models;
+using Microsoft.Extensions.Configuration;
 
-namespace YourFurniture.Data
+public class MongoDBContext
 {
-    public class MongoDbContext
+    private readonly IMongoDatabase _database;
+
+    public MongoDBContext(IConfiguration configuration)
     {
-        private readonly IMongoDatabase _database;
-
-        public MongoDbContext(IOptions<MongoSettings> settings)
-        {
-            var client = new MongoClient(settings.Value.ConnectionString);
-            _database = client.GetDatabase(settings.Value.Database);
-        }
-
-        public IMongoCollection<Product> Products => _database.GetCollection<Product>("Products");
-        public IMongoCollection<Category> Categories => _database.GetCollection<Category>("Categories");
+        var client = new MongoClient(configuration["MongoDB:ConnectionString"]);
+        _database = client.GetDatabase(configuration["MongoDB:DatabaseName"]);
     }
+
+    public IMongoCollection<Product> Products => _database.GetCollection<Product>("Products");
+    public IMongoCollection<Category> Categories => _database.GetCollection<Category>("Categories");
 }
